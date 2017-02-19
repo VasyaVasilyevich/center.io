@@ -1,4 +1,5 @@
-// INSPIRE ROLE PLAY
+// updated 19.02.2017
+
 #include a_samp
 
 //макросы
@@ -183,6 +184,10 @@ new gAdvert[MAX_ADVERT_COUNT][ADVERT_DATA];
 new gAdvertCount;
 new gAdvertPrice = 8;
 new gAdvertTime;
+
+//текстдрав
+new
+    Text: UnionTD[4];
 //NEWS
 
 new gDerevo[38], DerevoP[38], TOTALDEREVO;
@@ -676,7 +681,6 @@ new HotelInfo[MAX_HOTEL][mInfo], addhotel;
 new
 	Float:posCam[MAX_PLAYERS][3],
 	Float:Degree[MAX_PLAYERS],
-	pickuptook[3],
 	dicetime,
 	casino[2],
 	piro,
@@ -933,6 +937,7 @@ new stringer  [3000];
 //txd
 new
     PlayerText:DartProjectTD[21][MAX_PLAYERS],
+	PlayerText:VEHSPEED[21][MAX_PLAYERS],
 	PlayerText:ShopText[MAX_PLAYERS],
 	PlayerText:ReconPlayerText[MAX_PLAYERS][2],
 	PlayerText:Bizwar[MAX_PLAYERS][3],
@@ -1896,7 +1901,215 @@ stock LoadPlayerDraws(playerid)
 	PlayerTextDrawBackgroundColor(playerid, Race[9][playerid], 51);
 	PlayerTextDrawFont(playerid, Race[9][playerid], 2);
 	PlayerTextDrawSetProportional(playerid, Race[9][playerid], 1);
+	//а тут лежит сам текстдрав с написью серва
+    UnionTD[0] = TextDrawCreate(551.9915, 0.9667, "C");
+    TextDrawFont(UnionTD[0], 2);
+    TextDrawLetterSize(UnionTD[0], 0.5860, 3.5675);
+    TextDrawColor(UnionTD[0], 0xFF00AFFF);
+    TextDrawSetOutline(UnionTD[0], 0);
+    TextDrawSetProportional(UnionTD[0], 1);
+    TextDrawSetShadow(UnionTD[0], 1);
+    TextDrawUseBox(UnionTD[0], 0);
+    TextDrawBoxColor(UnionTD[0], 0x80808080);
+    TextDrawTextSize(UnionTD[0], 1280.0000, 1280.0000);
+    TextDrawAlignment(UnionTD[0], 1);
+    TextDrawSetPreviewModel(UnionTD[0], 0);
+    TextDrawBackgroundColor(UnionTD[0], 0xFF000000);
+
+    UnionTD[1] = TextDrawCreate(567.8993, 7.5000, "enter");
+    TextDrawFont(UnionTD[1], 2);
+    TextDrawLetterSize(UnionTD[1], 0.4090, 1.3967);
+    TextDrawColor(UnionTD[1], 0xFFFFFFFF);
+    TextDrawSetOutline(UnionTD[1], 0);
+    TextDrawSetProportional(UnionTD[1], 1);
+    TextDrawSetShadow(UnionTD[1], 1);
+    TextDrawUseBox(UnionTD[1], 0);
+    TextDrawBoxColor(UnionTD[1], 0x80808080);
+    TextDrawTextSize(UnionTD[1], 1280.0000, 1280.0000);
+    TextDrawAlignment(UnionTD[1], 1);
+    TextDrawSetPreviewModel(UnionTD[1], 0);
+    TextDrawBackgroundColor(UnionTD[1], 0xFF000000);
+
+    UnionTD[2] = TextDrawCreate(567.8987, 17.9333, "ROLEPLAY");
+    TextDrawFont(UnionTD[2], 2);
+    TextDrawLetterSize(UnionTD[2], 0.1810, 1.3733);
+    TextDrawColor(UnionTD[2], 0xFFFFFFFF);
+    TextDrawSetOutline(UnionTD[2], 0);
+    TextDrawSetProportional(UnionTD[2], 1);
+    TextDrawSetShadow(UnionTD[2], 1);
+    TextDrawUseBox(UnionTD[2], 0);
+    TextDrawBoxColor(UnionTD[2], 0x80808080);
+    TextDrawTextSize(UnionTD[2], 1280.0000, 1280.0000);
+    TextDrawAlignment(UnionTD[2], 1);
+    TextDrawSetPreviewModel(UnionTD[2], 0);
+    TextDrawBackgroundColor(UnionTD[2], 0xFF000000);
+
+    UnionTD[3] = TextDrawCreate(567.8987, 26.6334, "Test");
+    TextDrawFont(UnionTD[3], 1);
+    TextDrawLetterSize(UnionTD[3], 0.2600, 1.6042);
+    TextDrawColor(UnionTD[3], 0xFF00AFFF);
+    TextDrawSetOutline(UnionTD[3], 0);
+    TextDrawSetProportional(UnionTD[3], 1);
+    TextDrawSetShadow(UnionTD[3], 0);
+    TextDrawUseBox(UnionTD[3], 0);
+    TextDrawBoxColor(UnionTD[3], 0x80808080);
+    TextDrawTextSize(UnionTD[3], 1280.0000, 1280.0000);
+    TextDrawAlignment(UnionTD[3], 1);
+    TextDrawSetPreviewModel(UnionTD[3], 0);
+    TextDrawBackgroundColor(UnionTD[3], 0xFF000000);
 	//Спидометр
+    VEHSPEED[playerid][0] = CreatePlayerTextDraw(playerid, 633.000000, 366.620025, "usebox");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][0], 0.000000, 7.564813);
+    PlayerTextDrawTextSize(playerid, VEHSPEED[playerid][0], 486.000000, 0.000000);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][0], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][0], 0);
+    PlayerTextDrawUseBox(playerid, VEHSPEED[playerid][0], true);
+    PlayerTextDrawBoxColor(playerid, VEHSPEED[playerid][0], 112);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][0], 0);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][0], 0);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][0], 0);
+
+    VEHSPEED[playerid][1] = CreatePlayerTextDraw(playerid, 462.000000, 322.560028, "LD_SPAC:white");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][1], 0.000000, 0.000000);
+    PlayerTextDrawTextSize(playerid, VEHSPEED[playerid][1], 70.500000, 84.373352);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][1], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][1], -1);
+    PlayerTextDrawUseBox(playerid, VEHSPEED[playerid][1], true);
+    PlayerTextDrawBoxColor(playerid, VEHSPEED[playerid][1], 0x00000000);
+    PlayerTextDrawBackgroundColor(playerid, VEHSPEED[playerid][1], 0x00000000);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][1], 0);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][1], 0);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][1], 5);
+    PlayerTextDrawSetPreviewModel(playerid, VEHSPEED[playerid][1], 560);
+    PlayerTextDrawSetPreviewRot(playerid, VEHSPEED[playerid][1], 0.000000, 0.000000, 25.000000, 1.000000);
+
+    VEHSPEED[playerid][2] = CreatePlayerTextDraw(playerid, 632.500000, 366.619995, "usebox");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][2], 0.000000, 7.497778);
+    PlayerTextDrawTextSize(playerid, VEHSPEED[playerid][2], 617.500000, 0.000000);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][2], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][2], 0);
+    PlayerTextDrawUseBox(playerid, VEHSPEED[playerid][2], true);
+    PlayerTextDrawBoxColor(playerid, VEHSPEED[playerid][2], 102);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][2], 0);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][2], 0);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][2], 0);
+
+    VEHSPEED[playerid][3] = CreatePlayerTextDraw(playerid, 621.500000, 368.106658, "L");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][3], 0.236498, 1.652266);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][3], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][3], -2139062017);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][3], 1);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][3], 0);
+    PlayerTextDrawBackgroundColor(playerid, VEHSPEED[playerid][3], 51);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][3], 2);
+    PlayerTextDrawSetProportional(playerid, VEHSPEED[playerid][3], 1);
+
+    VEHSPEED[playerid][4] = CreatePlayerTextDraw(playerid, 621.500000, 393.000091, "E");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][4], 0.236498, 1.652266);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][4], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][4], -2139062017);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][4], 1);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][4], 0);
+    PlayerTextDrawBackgroundColor(playerid, VEHSPEED[playerid][4], 51);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][4], 2);
+    PlayerTextDrawSetProportional(playerid, VEHSPEED[playerid][4], 1);
+
+    VEHSPEED[playerid][5] = CreatePlayerTextDraw(playerid, 621.500000, 414.160095, "M");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][5], 0.236498, 1.652266);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][5], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][5], -2139062017);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][5], 1);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][5], 0);
+    PlayerTextDrawBackgroundColor(playerid, VEHSPEED[playerid][5], 51);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][5], 2);
+    PlayerTextDrawSetProportional(playerid, VEHSPEED[playerid][5], 1);
+
+    VEHSPEED[playerid][6] = CreatePlayerTextDraw(playerid, 603.500000, 374.086608, "usebox");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][6], 0.000000, 0.927781);
+    PlayerTextDrawTextSize(playerid, VEHSPEED[playerid][6], 532.000000, 0.000000);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][6], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][6], 0);
+    PlayerTextDrawUseBox(playerid, VEHSPEED[playerid][6], true);
+    PlayerTextDrawBoxColor(playerid, VEHSPEED[playerid][6], 102);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][6], 0);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][6], 0);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][6], 0);
+
+    VEHSPEED[playerid][7] = CreatePlayerTextDraw(playerid, 550.000000, 370.360076, "SPEED: 0");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][7], 0.197499, 1.487998);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][7], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][7], -2139062017);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][7], 1);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][7], 0);
+    PlayerTextDrawBackgroundColor(playerid, VEHSPEED[playerid][7], 51);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][7], 2);
+    PlayerTextDrawSetProportional(playerid, VEHSPEED[playerid][7], 1);
+
+    VEHSPEED[playerid][8] = CreatePlayerTextDraw(playerid, 483.500000, 371.839996, "LD_SPAC:white");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][8], 0.000000, 0.000000);
+    PlayerTextDrawTextSize(playerid, VEHSPEED[playerid][8], 51.500000, 67.199981);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][8], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][8], -1);
+    PlayerTextDrawUseBox(playerid, VEHSPEED[playerid][8], true);
+    PlayerTextDrawBoxColor(playerid, VEHSPEED[playerid][8], 0x00000000);
+    PlayerTextDrawBackgroundColor(playerid, VEHSPEED[playerid][8], 0x00000000);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][8], 0);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][8], 0);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][8], 5);
+    PlayerTextDrawSetPreviewModel(playerid, VEHSPEED[playerid][8], 1650);
+    PlayerTextDrawSetPreviewRot(playerid, VEHSPEED[playerid][8], 0.000000, 0.000000, 0.000000, 1.000000);
+
+    VEHSPEED[playerid][9] = CreatePlayerTextDraw(playerid, 500.500000, 400.480133, "100L");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][9], 0.197499, 1.487998);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][9], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][9], -1);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][9], 1);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][9], 0);
+    PlayerTextDrawBackgroundColor(playerid, VEHSPEED[playerid][9], 80);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][9], 2);
+    PlayerTextDrawSetProportional(playerid, VEHSPEED[playerid][9], 1);
+
+    VEHSPEED[playerid][10] = CreatePlayerTextDraw(playerid, 533.000000, 390.280090, "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][10], 0.202499, 1.525333);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][10], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][10], -2139062017);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][10], 0);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][10], 0);
+    PlayerTextDrawBackgroundColor(playerid, VEHSPEED[playerid][10], 80);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][10], 1);
+    PlayerTextDrawSetProportional(playerid, VEHSPEED[playerid][10], 1);
+
+    VEHSPEED[playerid][11] = CreatePlayerTextDraw(playerid, 603.500000, 393.266876, "KM/H");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][11], 0.141999, 1.025066);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][11], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][11], -2139062017);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][11], 1);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][11], 0);
+    PlayerTextDrawBackgroundColor(playerid, VEHSPEED[playerid][11], 80);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][11], 2);
+    PlayerTextDrawSetProportional(playerid, VEHSPEED[playerid][11], 1);
+
+    VEHSPEED[playerid][12] = CreatePlayerTextDraw(playerid, 604.000000, 415.153350, "usebox");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][12], 0.000000, 1.093703);
+    PlayerTextDrawTextSize(playerid, VEHSPEED[playerid][12], 532.000000, 0.000000);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][12], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][12], 0);
+    PlayerTextDrawUseBox(playerid, VEHSPEED[playerid][12], true);
+    PlayerTextDrawBoxColor(playerid, VEHSPEED[playerid][12], 102);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][12], 0);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][12], 0);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][12], 0);
+
+    VEHSPEED[playerid][13] = CreatePlayerTextDraw(playerid, 542.000000, 413.920074, "GPS: CITY HALL");
+    PlayerTextDrawLetterSize(playerid, VEHSPEED[playerid][13], 0.172499, 1.316265);
+    PlayerTextDrawAlignment(playerid, VEHSPEED[playerid][13], 1);
+    PlayerTextDrawColor(playerid, VEHSPEED[playerid][13], -2139062017);
+    PlayerTextDrawSetShadow(playerid, VEHSPEED[playerid][13], 1);
+    PlayerTextDrawSetOutline(playerid, VEHSPEED[playerid][13], 0);
+    PlayerTextDrawBackgroundColor(playerid, VEHSPEED[playerid][13], 51);
+    PlayerTextDrawFont(playerid, VEHSPEED[playerid][13], 2);
+    PlayerTextDrawSetProportional(playerid, VEHSPEED[playerid][13], 1);
+    
     DartProjectTD[0][playerid] = CreatePlayerTextDraw(playerid,443.666625, 329.363037, "PreviewModel");
 	PlayerTextDrawLetterSize(playerid,DartProjectTD[0][playerid], 0.000000, 0.000000);
 	PlayerTextDrawTextSize(playerid,DartProjectTD[0][playerid], 217.333343, 136.474136);
@@ -4631,20 +4844,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		}
 	case 136:
 		{
-			if(!response) return 1;
-			if(GetPVarInt(playerid, "arenda_took") != 0) return SCM(playerid, -1, "• {AC0000}[Ошибка] {ffffff}Вы уже арендовали свой мопед");
-			if(GetPVarInt(playerid, "check_arenda_moped")) return 1;
-			PlayerInfo[playerid][pCash] -= 15;
-			new Float:x,Float:y,Float:a,Float:z;
-			GetPlayerPos(playerid,x,y,z);
-			GetPlayerFacingAngle(playerid,a);
-			SetPVarInt(playerid, "arenda_took", _:Forveh_AddStaticVehicleEx(462, x,y,z,a, 1,1, 300));
-			GetVehicleParamsEx(GetPVarInt(playerid, "arenda_took"),engine,lights,alarm,doors,bonnet,boot,objective);
-			VehInfo[GetPVarInt(playerid, "arenda_took")][vFuel] = float(150);
-			PutPlayerInVehicle(playerid,GetPVarInt(playerid, "arenda_took"),0);
-			SetVehicleParamsEx(GetPVarInt(playerid, "arenda_took"),0,0,alarm,doors,bonnet,boot,objective);
-			SetPVarInt(playerid, "check_arenda_moped",1);
-			return SendClientMessage(playerid,COLOR_GREY,"Вам был выдан мопед!");
+SendClientMessage(playerid, COLOR_WHITE, "Эта фича вырезана а костыль остался");
 		}
 	case 1239:
 		{
@@ -14086,17 +14286,7 @@ public OnPlayerPickUpPickup(playerid, pickupid)
 		SPD(playerid,993,DIALOG_STYLE_INPUT,"{FF6F00}Создание семьи","\n\n{6495ED}Внимание! Вы хотите создать семью.\nСоздание семьи стоит: 35 рублей\n\nЕсли Вы согласны, введите название семьи:","Создать","Отмена");
 		return 1;
 	}
-	else if(pickupid >= pickuptook[0] && pickupid <= pickuptook[2])
-	{
-		if(GetPVarInt(playerid, "arenda_took") && GetPVarInt(playerid, "check_arenda_moped"))
-		{
-			DestroyVehicleEx(GetPVarInt(playerid, "arenda_took"));
-			DeletePVar(playerid, "arenda_took");
-			SendClientMessage(playerid,COLOR_GREY,"Ваш арендованый мопед был удален!");
-			DeletePVar(playerid, "check_arenda_moped");
-		}
-		if(!GetPVarInt(playerid, "check_arenda_moped")) return SPD(playerid,136,DIALOG_STYLE_MSGBOX,"{FF6F00}Аренда мопедов","{FFFFFF}Аренда мопедов.\n\nИнформация:\n- Если арендованый транспорт не будет использоватся 5-ть минут.\n- Он будет удален автоматически!","Арендовать","Отмена");
-	}
+
 	else if(pickupid == spawnpickup[0])
 	{
 		TogglePlayerControllable(playerid, false);
@@ -19747,9 +19937,6 @@ LoadPickups()
 	spawnpickup[3] = CreatePickupAC(1318, 23, 294.6748,1784.2068,718.4039);
     ProposeInt[0] = CreatePickupAC(1318, 23, 1752.2766,-1754.1945,14.7250);
     ProposeInt[1] = CreatePickupAC(1318, 23, 2216.7869,-36.0041,606.8281);
-	pickuptook[0] = CreatePickupAC(19134,23,1743.9087,-1886.6670,13.3949);
-	pickuptook[1] = CreatePickupAC(19134,23,1473.1429,-1024.1007,23.8281);
-	pickuptook[2] = CreatePickupAC(19134,23,1213.8303,-1324.6779,13.5671);
 	hotelpickup[0] = CreatePickupAC(1318, 23, 606.5850,-1458.3682,14.3793);
 	hotelpickup[1] = CreatePickupAC(1318, 23, 1330.6763,-1063.9916,3359.7158);
 	hotelpickup[2] = CreatePickupAC(19131, 23, 1325.1055,-1047.6830,3359.7109);
